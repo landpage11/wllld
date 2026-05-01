@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج استعادة جسدك بعد الولادة - 3 في 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #B565A7;
+            --primary-light: #D4A5D4;
+            --secondary: #8B7B8B;
+            --accent: #E8C4D8;
+            --gold: #D4AF37;
+            --text: #2D2D2D;
+            --text-light: #6B6B6B;
+            --bg: #FFF8F5;
+            --white: #FFFFFF;
+            --shadow: rgba(181, 101, 167, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            background: linear-gradient(135deg, #FFF8F5 0%, #F5E6F0 50%, #E8D5E8 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(181, 101, 167, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -15%;
+            left: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--white);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 40px var(--shadow);
+            margin-bottom: 2rem;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .badge-icon {
+            font-size: 1.5rem;
+        }
+
+        .badge-text {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .promo-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            animation: slideUp 0.8s ease-out 0.1s both;
+        }
+
+        h1 {
+            font-family: 'Amiri', serif;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            animation: slideUp 0.8s ease-out 0.4s both;
+            line-height: 1.6;
+        }
+
+        /* CTA Button */
+        .cta-container {
+            animation: slideUp 0.8s ease-out 0.8s both;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 15px 40px var(--shadow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px var(--shadow);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            font-family: 'Amiri', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.125rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(181, 101, 167, 0.05), rgba(212, 175, 55, 0.03));
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(181, 101, 167, 0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Program Benefits Section */
+        .benefits {
+            padding: 5rem 0;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(181, 101, 167, 0.08), rgba(212, 175, 55, 0.04));
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .benefit-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .benefit-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Packages Section */
+        .packages {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(181, 101, 167, 0.03), rgba(212, 175, 55, 0.02));
+        }
+
+        .package-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px var(--shadow);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px var(--shadow);
+        }
+
+        .package-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .package-title {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .package-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .package-list {
+            text-align: right;
+            margin: 2rem 0;
+        }
+
+        .package-list li {
+            color: var(--text-light);
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(181, 101, 167, 0.1);
+            list-style: none;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+
+        .package-list li:last-child {
+            border-bottom: none;
+        }
+
+        .package-list li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 700;
+            position: absolute;
+            right: 0;
+        }
+
+        /* Urgency Section */
+        .urgency {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+            50% { box-shadow: 0 0 0 20px rgba(255,255,255,0); }
+        }
+
+        .urgency h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .urgency p {
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+
+        /* Testimonials Section */
+        .testimonial {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(181, 101, 167, 0.05), rgba(212, 175, 55, 0.03));
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(181, 101, 167, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            padding-top: 3rem;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: -15px;
+            right: 2rem;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 8px 24px var(--shadow);
+        }
+
+        .testimonial-author h4 {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-author p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #FFF8F5 0%, #F5E6F0 100%);
+            border-top: 1px solid rgba(181, 101, 167, 0.1);
+        }
+
+        .final-cta h2 {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.75rem, 5vw, 3rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .btn-white {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary);
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 15px 40px var(--shadow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px var(--shadow);
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .trust-badge svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding: 3rem 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .features-grid,
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-badges {
+                gap: 1rem;
+            }
+
+            .btn-primary,
+            .btn-white {
+                font-size: 1.1rem;
+                padding: 1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo-badge">
+                    <div class="badge-icon">💪</div>
+                    <div class="badge-text">برنامج استعادة الجسم بعد الولادة</div>
+                </div>
+
+                <div class="promo-tag">✨ لا يطوفكم العرض للمميز الشامل الآن ! ✨</div>
+
+                <h1>برنامجك الكامل لاستعادة جسدك بعد الولادة</h1>
+
+                <p class="subtitle">
+                    صار جاهز 🤍<br>
+                    تقدرين تبدين معانا من أول أسبوع بعد الولادة وحتى بعد مرور شهور أو سنوات من ولادتك!
+                </p>
+
+                <div class="cta-container">
+                    <a href="https://wa.me/966568123700" target="_blank" class="btn-primary">
+                        احجزي مكانك الآن 💗
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Overview Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">برنامجنا ٣ في ١ 🤩</h2>
+            <p class="section-subtitle">يشمل 3 برامج في برنامج واحد</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌸</div>
+                    <h3>تمارين كيجل والتأهيل</h3>
+                    <p>تأهيل قاع الحوض لعلاج التوسع المهبلي وآلام الحوض والسلس البولي والهبوط المهبلي</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌸</div>
+                    <h3>برنامج الانفصال العضلي</h3>
+                    <p>علاج الانفصال العضلي وتصغير البطن بطريقة آمنة وفعالة</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌸</div>
+                    <h3>تمارين آمنة شاملة</h3>
+                    <p>تمارين آمنة للبطن والجسم كامل بعد الولادة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">ما الذي ستحصلين عليه؟</h2>
+            <p class="section-subtitle">دعم شامل وفعال في كل خطوة من رحلتك</p>
+
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">💪</div>
+                    <div>
+                        <h4>رجوع آمن وقوة</h4>
+                        <p>استعادة جسمك وقوتك ولياقتك بخطوة تلو الأخرى بطريقة آمنة وفعالة</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">💬</div>
+                    <div>
+                        <h4>دعم يومي وتحفيز</h4>
+                        <p>دعم يومي ومستمر لتبقي متحفزة ومصممة على النجاح</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎥</div>
+                    <div>
+                        <h4>مقاطع تمارين واضحة</h4>
+                        <p>مقاطع تمارين واضحة مع شرح مفصل وسهلة التطبيق في البيت</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">📞</div>
+                    <div>
+                        <h4>تواصل مباشر</h4>
+                        <p>تواصل مباشر + مكالمات فيديو أسبوعية جماعية مع الاختصاصية</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🥗</div>
+                    <div>
+                        <h4>نصائح غذائية متقدمة</h4>
+                        <p>نصائح غذائية تساعدك توصلين لأفضل النتائج والصحة</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">💕</div>
+                    <div>
+                        <h4>شكل تحبينه</h4>
+                        <p>استعيدي الثقة والشكل اللي تحبينه في جسدك</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgency Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="urgency">
+                <h3>⏰ تنبيه مهم: بكــره نبدأ البرنامج! 🔥</h3>
+                <p>لا تفوتين البداية معانا 🤍</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Section -->
+    <section class="packages">
+        <div class="container">
+            <h2 class="section-title">البرنامج الشامل</h2>
+            <p class="section-subtitle">كل ما تحتاجينه لرحلة النجاح</p>
+
+            <div class="package-card">
+                <div class="package-badge">العرض الشامل المميز</div>
+                <h3 class="package-title">برنامج استعادة الجسم</h3>
+                <p class="package-description">
+                    برنامج متكامل يشمل التمارين والنصائح الغذائية والدعم المستمر
+                </p>
+
+                <ul class="package-list">
+                    <li>تمارين كيجل وقاع الحوض</li>
+                    <li>برنامج الانفصال العضلي</li>
+                    <li>تمارين آمنة شاملة</li>
+                    <li>مقاطع فيديو واضحة</li>
+                    <li>دعم يومي وتحفيز</li>
+                    <li>نصائح غذائية متخصصة</li>
+                    <li>مكالمات فيديو أسبوعية</li>
+                    <li>تواصل مباشر مع الاختصاصية</li>
+                </ul>
+
+                <a href="https://wa.me/966568123700" target="_blank" class="btn-primary">
+                    احجزي الآن عبر الواتس
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <div class="container">
+            <h2 class="section-title">قصص الأمهات</h2>
+            <p class="section-subtitle">سمعي من الأمهات اللي استفادوا من البرنامج</p>
+
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-text">
+                    استعدت جسمي بثقة وبدون خوف! البرنامج ساعدني أتعافى بسرعة والتمارين كانت آمنة جداً. الاختصاصية ما قصرت في الدعم والنصائح. أنصح كل أم بحضور البرنامج وما تتأخري!
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">أ</div>
+                    <div>
+                        <h4>أم سعيدة</h4>
+                        <p>أم لطفلتين</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Is This Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">هذا مو مجرد برنامج...</h2>
+            <p class="section-subtitle">هذا بداية انطلاق رحلتك للراحة والقوة والثقة بإذن الله ✨</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>تخطيط علمي</h3>
+                    <p>برنامج مصمم بعناية من قبل متخصصة معتمدة</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>آمان وخصوصية</h3>
+                    <p>بيئة آمنة وخاصة لتحققي أهدافك براحة تامة</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>نتائج حقيقية</h3>
+                    <p>آلاف الأمهات استعدن أجسامهن وثقتهن معانا</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>احجزي مكانك الآن 💗</h2>
+            <p>
+                ابدئي رحلتك للراحة والقوة والثقة<br>
+                لا تفوتين هذه الفرصة الذهبية
+            </p>
+
+            <a href="https://wa.me/966568123700" target="_blank" class="btn-white">
+                📩 احجزي عبر الواتس آب
+            </a>
+
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                    </svg>
+                    برنامج متخصص
+                </div>
+                <div class="trust-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z"/>
+                    </svg>
+                    دعم كامل
+                </div>
+                <div class="trust-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/>
+                    </svg>
+                    نتائج مثبتة
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .benefit-item, .package-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
